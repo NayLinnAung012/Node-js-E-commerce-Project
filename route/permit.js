@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const controller = require('../controller/permit');
 const {PermitSchema,AllSchema} = require('../utils/schema');
-const {validateBody,validateParams} = require('../utils/validator');
-router.post('/',validateBody(PermitSchema.add),controller.add);
+const {validateBody,validateParams,validateToken} = require('../utils/validator');
+router.post('/',[validateToken(),validateBody(PermitSchema.add),controller.add]);
 router.get('/',controller.all);
 
 router.route('/:id')

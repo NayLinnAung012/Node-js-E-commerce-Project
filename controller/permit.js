@@ -16,7 +16,7 @@ const get = async(req,res,next)=>{
 }
 
 const add = async(req,res,next)=>{
-    // console.log(req.body)
+    console.log(req.user);
     let dbPermit = await DB.findOne({name:req.body.name});
     // console.log(dbPermit)
     if(dbPermit){
